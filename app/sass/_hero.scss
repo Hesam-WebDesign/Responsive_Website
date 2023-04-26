@@ -1,0 +1,50 @@
+.hero {
+    background-color: $VeryLightGray;
+    
+    .container {
+        @include breakpoint-up(large) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &___image {
+        //display: block;
+        //position: relative;
+        background-image: url('/images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+
+        @include breakpoint-up(large) {
+            background-image: url('/images/bg-intro-desktop.svg');
+            flex: 3;
+            order: 2;
+            height: 41rem;
+            background-position: left center;
+        }
+
+        // &::before {
+        //     //display: inline-block;
+        //     content: "";
+        //     //position: absolute;
+        //     background-image: url('/images/image-mockups.png');
+        //     width: 100%;
+        //     height: 100%;
+        //     background-size: 93%;
+        //     background-repeat: no-repeat;
+        //     background-position: center bottom;
+        // }
+    }
+
+    &___text {
+        text-align: center;
+
+        @include breakpoint-up(large) {
+            flex: 2;
+            order: 1;
+            text-align: left;
+        }
+    }
+}

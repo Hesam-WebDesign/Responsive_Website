@@ -1,0 +1,132 @@
+html {
+    font-size: 100%; //zoom level
+    
+    // will fix the height and width (won't add border and padding to it)
+    box-sizing: border-box;
+}
+
+// will work on all elements (even after and before them!)
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Public Sans', sans-serif;
+    font-size: $font-med;
+    font-weight: 300;
+    color: $GrayishBlue;
+    line-height: 1.3;
+
+    @include breakpoint-up(large) {
+        font-size: $font-med;
+    }
+
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+
+h1, h2, h3 {
+    margin-top: 0px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: $DarkBlue;
+}
+
+h1 {
+    font-size: 2.31rem;
+    margin-bottom: 1.5rem;
+    
+    @include breakpoint-up(large) {
+        font-size: $font-xlg;
+    }
+}
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5625rem;
+
+    @include breakpoint-up(large) {
+        font-size: 2.25rem;
+        margin-bottom: 2.25rem;
+    }
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+}
+
+//Flexbox:
+.flex {
+    display: flex;
+
+    &-jc-sb { // "&" makes our code easier... it means ".flex-jc-sb" here
+        justify-content: space-between;
+    }
+
+    &-jc-c { // .flex-jc-c
+        justify-content: center;
+    }
+
+    &-ai-c { // .flex-ai-c
+        align-items: center;
+    }
+}
+
+// Buttons:
+button, .button {
+    padding: 0.875rem 2.1875rem;
+    background: linear-gradient(to right, $LimeGreen, $BrightCyan);
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    transition: color 300ms ease-in-out;
+    display: inline-block;
+    font-size: $font-sm;
+    color: white;
+
+    &:hover {
+         opacity: 0.75;
+    }
+}
+
+// hide for tablet and mobile:
+.hide-for-mobile {
+    @include breakpoint-down (medium) {
+        display: none;
+    }
+}
+
+// hide for desktop viewport widths:
+.hide-for-desktop {
+    @include breakpoint-up (large) {
+        display: none;
+    }
+}
+
+// spacing
+.container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+
+    &--pall { //padding for all directions
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 4.3755rem;
+        padding-bottom: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+}
